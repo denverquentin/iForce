@@ -1,7 +1,4 @@
-##Update
-I no longer use this plugin so I may not update this anytime soon. Please refer SublimeApex which does almost all the features of this plugin and many more https://github.com/xjsender/SublimeApex
-
-##iForce - Sublime text extension to help salesforce development (windows)
+##iForce - Sublime Text 3 extension to help salesforce development (windows). Forked from https://github.com/palaniraja/iForce
 
 
 ###Prerequisites:
@@ -13,33 +10,16 @@ If you are using Force.com IDE or Eclipse as your primary IDE, chances are you h
 
 
 ###Features
-* Setup a new project
 * Refresh from server
 * Quick compile - Deploy current file to salesforce
-* Snippets - Create new Class/Trigger/Page with tab triggers (ifc, ift and ifp)
-* Syntax auto-set (*.cls, *.trigger and *.page)
- 
-###Planned to implement in future
-*  Keep changesets in local git repo
-*  Option to run SOQL query without leaving sublimetext
-*  Get fields of an object by selecting object name.
-*  Execute selected code and return results (Developer console)
 
-###References
-- [Screenshots] (http://palaniraja.github.io/iForce/)
 
-####Inspiration
-- [ForceDotBundle] (https://github.com/joshbirk/ForceDotBundle)
-- [MavensMate] (https://github.com/joeferraro/MavensMate-SublimeText)
+###Install Instructions
 
-###Contributions
-- [pventurino](https://github.com/pventurino)
 
-***
+
+
 ###License
-
-Copyright 2012 Palaniraja
-
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at

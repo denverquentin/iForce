@@ -13,7 +13,9 @@
 
     <!-- quickcompile -->
     <target name="qcompile">
-        <sf:deploy username="${username}" password="${password}" serverurl="${serverurl}" deployRoot="payload"></sf:deploy>
+        <sf:deploy username="${username}" password="${password}" serverurl="${serverurl}" deployRoot="payload" pollWaitMillis="9000" maxPoll="100"></sf:deploy>
+        <!-- custom add - removes payload dir after deploy is done -->
+        <delete verbose="true" quiet="true" includeemptydirs="true" dir="payload"/>
     </target>
 
     <!-- refresh from server -->

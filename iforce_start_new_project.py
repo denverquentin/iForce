@@ -12,14 +12,14 @@ def getunzipped(theurl, thedir):
   name = os.path.join(thedir, 'temp.zip')
   try:
     name, hdrs = urllib.urlretrieve(theurl, name)
-  except IOError, e:
-    print "iForce: Can't retrieve %r to %r: %s" % (theurl, thedir, e)
+  except IOError as e:
+    print('iForce: Can\'t retrieve %r to %r: %s' % (theurl, thedir, e))
     return
   try:
     extract(name, thedir)
     os.unlink(name)
-  except zipfile.error, e:
-    print "iForce: Bad zipfile (from %r): %s" % (theurl, e)
+  except zipfile.error as e:
+    print('iForce: Bad zipfile (from %r): %s' % (theurl, e))
     return
 
 class iforce_start_new_projectCommand(sublime_plugin.WindowCommand):
@@ -43,7 +43,7 @@ class iforce_start_new_projectCommand(sublime_plugin.WindowCommand):
         os.makedirs(outputdir + '/' + folder)
 
     # print 'outputdir: '+ self.outputdir
-    print 'iForce: iforce_start_new_project [DONE]'
+    print('iForce: iforce_start_new_project [DONE]')
 
 
   def run(self, *args, **kwargs):

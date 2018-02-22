@@ -46,9 +46,9 @@ def create_metadata_file(sourcefile):
 	srcpath, folder = os.path.split(folderpath)
 	objectType = typesByFolder[folder]
 	if objectType.packageTag == 'ApexPage':
-		metaFileContent = '<?xml version="1.0" encoding="UTF-8"?>\n<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata"><apiVersion>25.0</apiVersion><description>'+filename+'</description><label>'+filename+'</label></ApexPage>'
+		metaFileContent = '<?xml version="1.0" encoding="UTF-8"?>\n<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata"><apiVersion>36.0</apiVersion><description>'+filename+'</description><label>'+filename+'</label></ApexPage>'
 	else:
-		metaFileContent = '<?xml version="1.0" encoding="UTF-8"?>\n<'+objectType.packageTag+' xmlns="http://soap.sforce.com/2006/04/metadata"><apiVersion>25.0</apiVersion><status>Active</status></'+objectType.packageTag+'>'
+		metaFileContent = '<?xml version="1.0" encoding="UTF-8"?>\n<'+objectType.packageTag+' xmlns="http://soap.sforce.com/2006/04/metadata"><apiVersion>36.0</apiVersion><status>Active</status></'+objectType.packageTag+'>'
 
 	# Create the file
 	fhandle = open(metaFile,'w')
@@ -102,7 +102,7 @@ def generate_package_xml(payload_path):
 			fhandle.write('</types>');
 
 	# Close the file
-	fhandle.write('<version>25.0</version>')
+	fhandle.write('<version>36.0</version>')
 	fhandle.write('</Package>')
 	fhandle.close()
 
@@ -123,16 +123,17 @@ class iforce_quick_compileCommand(sublime_plugin.WindowCommand):
 		if self.window.active_view().is_dirty():
 			self.window.active_view().run_command('save')
 
-		self.prjFolder = re.search('.*/src/',self.window.active_view().file_name()).group(0);
-		print 'iForce: Project folder path' + self.prjFolder
+		#self.prjFolder = re.search('.*/src/',self.window.active_view().file_name()).group(0)
+		self.prjFolder = self.window.folders()[0]
+		print('iForce: Project folder path' + self.prjFolder)
 		self.payloadFolder = self.prjFolder + os.sep + PAYLOAD_FOLDER_NAME
-		print 'iForce: Payload folder name' + self.payloadFolder
+		print('iForce: Payload folder name' + self.payloadFolder)
 
 		try:
 			shutil.rmtree(self.payloadFolder)
-			print 'iForce: Old payload deleted'
-		except Exception, e:
-			print 'iForce: Couldn\'t delete old payload dir:', str(e)
+			print('iForce: Old payload deleted')
+		except Exception as e:
+			print('iForce: Couldn\'t delete old payload dir:', str(e))
 
 		# create dir
 		os.makedirs(self.payloadFolder)
@@ -141,7 +142,7 @@ class iforce_quick_compileCommand(sublime_plugin.WindowCommand):
 		try:
 			self.currentFile = self.window.active_view().file_name()
 			copy_to_payload(self.currentFile, self.payloadFolder)
-		except ValueError, e:
+		except ValueError as e:
 			logging.exception('iForce: Unable to copy file to payload.')
 			sublime.error_message('Unable to copy file to payload:\n' + str(e))
 			return
@@ -169,7 +170,7 @@ class iforce_quick_compile_allCommand(sublime_plugin.WindowCommand):
 					view.run_command('save')
 				try:
 					copy_to_payload(filepath, payloadFolder)
-				except ValueError, e:
+				except ValueError as e:
 					logging.debug(str(e))
 
 		#write package file and deploy

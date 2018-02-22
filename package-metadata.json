@@ -1,0 +1,10 @@
+{
+  "dependencies": [],
+  "version": "2018.06.09",
+  "platforms": [
+    "*"
+  ],
+  "description": "Salesforce Dev Tool for Sublime Text 3",
+  "url": "https://github.com/denverquentin/iForce",
+  "sublime_text": "*"
+}
