@@ -1,7 +1,7 @@
-##iForce - Sublime Text 3 extension to help salesforce development (windows). Forked from https://github.com/palaniraja/iForce
+## iForce - Sublime Text 3 extension to help salesforce development (windows). Forked from https://github.com/palaniraja/iForce
 
 
-###Prerequisites:
+### Prerequisites:
 If you are using Force.com IDE or Eclipse as your primary IDE, chances are you have everything you need.
 
 * **JAVA\_HOME** - Need to create a environment variable JAVA\_HOME to point your JRE eg. _C:\Program Files\Java\jdk1.6.0_31\jre
@@ -9,19 +9,19 @@ If you are using Force.com IDE or Eclipse as your primary IDE, chances are you h
 * Download **Force.com Migration Tool** from _https://your\_org\_instance.salesforce.com/ui/setup/sforce/ClientDevToolsSetupPage?setupid=ClientDevTools_ and replace **ant-salesforce.jar** you have download to your ant library folder. eg. _C:\Users\your_username\eclipse\plugins\org.apache.ant_1.7.1.v20100518-1145\lib_
 
 
-###Features
+### Features
 * Refresh from server
 * Quick compile - Deploy current file to salesforce
 
 
-###Install Instructions
+### Install Instructions
 1. Install Package Control in Sublime Text 3
 2. Run the Package Control: Add Repository and paste in the url of this repo
 3. Run the Package Control: Install Package and type in iForce
 
 
 
-###License
+### License
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
