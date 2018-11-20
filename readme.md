@@ -15,7 +15,9 @@ If you are using Force.com IDE or Eclipse as your primary IDE, chances are you h
 
 
 ###Install Instructions
-
+1. Install Package Control in Sublime Text 3
+2. Run the Package Control: Add Repository and paste in the url of this repo
+3. Run the Package Control: Install Package and type in iForce
 
 
 
